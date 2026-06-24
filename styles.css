@@ -10,7 +10,6 @@ body{
 }
 
 .envelope{
-  width:320px;
   background:white;
   padding:35px;
   border-radius:25px;
@@ -18,10 +17,11 @@ body{
   color:#ff4f9a;
   box-shadow:0 10px 30px rgba(255,79,154,.3);
   cursor:pointer;
+  animation:pop 1s ease;
 }
 
-.envelope h3{
-  font-size:28px;
+.letter h3{
+  font-size:26px;
 }
 
 .hidden{
@@ -31,14 +31,15 @@ body{
 #content{
   text-align:center;
   color:#ff4f9a;
-  max-width:500px;
   padding:20px;
+  max-width:500px;
+  animation:fadeIn 1s ease;
 }
 
 #message{
   font-size:24px;
-  line-height:1.8;
   white-space:pre-line;
+  line-height:1.8;
 }
 
 button{
@@ -47,11 +48,14 @@ button{
   border-radius:30px;
   font-size:20px;
   margin:10px;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(255,79,154,.3);
 }
 
 .yes{
   background:#ff4f9a;
   color:white;
+  animation:glow 2s infinite;
 }
 
 .no{
@@ -65,24 +69,54 @@ button{
   bottom:20px;
   background:#ff4f9a;
   color:white;
-  z-index:999;
-  font-size:18px;
+  border:none;
+  border-radius:25px;
+  padding:12px 18px;
+  font-size:16px;
+  z-index:9999;
 }
 
 .heart{
-  position:fixed;
-  bottom:-30px;
-  font-size:26px;
+  position:absolute;
+  font-size:25px;
   animation:float 4s linear forwards;
 }
 
 @keyframes float{
   from{
-    transform:translateY(0);
+    transform:translateY(100vh);
     opacity:1;
   }
   to{
-    transform:translateY(-110vh);
+    transform:translateY(-100px);
     opacity:0;
   }
+}
+
+@keyframes pop{
+  from{
+    transform:scale(.8);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes glow{
+  0%{ box-shadow:0 0 10px rgba(255,79,154,.4); }
+  50%{ box-shadow:0 0 30px rgba(255,79,154,.9); }
+  100%{ box-shadow:0 0 10px rgba(255,79,154,.4); }
 }
