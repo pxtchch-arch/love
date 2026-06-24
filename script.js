@@ -83,6 +83,8 @@ function createHeart(){
     heart.remove();
   },4000);
 }
+const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
 
 musicBtn.addEventListener("click", function(event){
   event.stopPropagation();
